@@ -1,0 +1,9 @@
+rule Base64EncodedPythonReverseShell {
+    meta:
+        description = "detects base64 encoded python reverse shell"
+    strings:
+        $encoded = "base64.b64decode"
+        $reverse_shell = "subprocess.Popen"
+    condition:
+        all of them
+}
